@@ -8,6 +8,7 @@ let dbConfig = {
     password: process.env.DB_PASSWORD ?? '',
     database: process.env.DB_NAME ?? 'szerviz',
     connectionLimit: 10,
+    datestring: true
 };
 
 const pool = mysql2.createPool(dbConfig);
