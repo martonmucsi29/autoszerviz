@@ -86,4 +86,14 @@ munkarouter.get('/:id', async (req, res) => {
     }
 });
 
+munkarouter.patch('/:id/statusz', async (req, res) => {
+    const { id } = req.params;
+    const { statusz } = req.body;
+    
+    let sql = `UPDATE munkalapok SET statusz = ? WHERE id = ?`;
+    let eredmeny = await pool.query(sql, [statusz, id]);
+
+    res.status(201).json(eredmeny);
+});
+
 export default munkarouter;
